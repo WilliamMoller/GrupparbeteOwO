@@ -4,7 +4,6 @@ public class Saab95 {
 
 	public boolean turboOn;
 	
-	//Hej OwO UwU
 
 	public double enginePower; // Engine power of the car
 	public double currentSpeed; // The current speed of the car
