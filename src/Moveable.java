@@ -1,15 +1,15 @@
-	
-public class Moveable {
 
-	public void move () {
+public interface Moveable {
+
+	public static void move() {
 		
 	}
 	
-	public void turnLeft() {
+	public static void turnLeft() {
 		
 	}
 	
-	public void turnRight() {
+	public static void turnRight() {
 		
 	}
 	
