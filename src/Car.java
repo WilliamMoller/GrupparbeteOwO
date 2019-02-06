@@ -58,4 +58,18 @@ public abstract class Car implements Moveable {
 		}
 		else return;
 	}
+	
+
+	public void move() {
+		
+	}
+	
+	public void turnLeft() {
+		
+	}
+	
+	public void turnRight() {
+		
+	}
+	
 }
