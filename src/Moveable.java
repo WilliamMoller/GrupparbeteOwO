@@ -1,16 +1,10 @@
 
 public interface Moveable {
 
-	public static void move() {
-		
-	}
+	public void move();
 	
-	public static void turnLeft() {
-		
-	}
+	public void turnLeft();
 	
-	public static void turnRight() {
-		
-	}
+	public void turnRight();
 	
 }
