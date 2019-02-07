@@ -1,18 +1,32 @@
 import javafx.scene.paint.Color;
 
 public abstract class Car implements Moveable {
-	
-	public double enginePower; // Engine power of the car
-	public double currentSpeed; // The current speed of the car
-	public Color color; // Color of the car
-	public String modelName; // The car model name
-	
+
+	private double enginePower; // Engine power of the car
+	private double currentSpeed; // The current speed of the car
+	private Color color; // Color of the car
+	private String modelName; // The car model name
+
+	/**
+	 * direction = 0 -> RIGHT <br>
+	 * direction = 1 -> DOWN <br>
+	 * direction = 2 -> LEFT <br>
+	 * direction = 3 -> UP
+	 */
+	private int direction;
+	private double yPos;
+	private double xPos;
+
 	protected Car(double ep, String m, Color c) {
 		color = c;
 		enginePower = ep;
 		modelName = m;
+
+		direction = 0; // START RIGHT
+		xPos = 0;
+		yPos = 0;
 	}
-			
+
 	public double getEnginePower() {
 		return enginePower;
 	}
@@ -32,11 +46,11 @@ public abstract class Car implements Moveable {
 	public void stopEngine() {
 		currentSpeed = 0;
 	}
-	
+
 	public double speedFactor() {
 		return 0;
 	}
-	
+
 	public void incrementSpeed(double amount) {
 		currentSpeed = getCurrentSpeed() + speedFactor() * amount;
 	}
@@ -46,30 +60,47 @@ public abstract class Car implements Moveable {
 	}
 
 	public void gas(double amount) {
-		if(amount <= 0 || amount > 0){
+		if (amount <= 0 || amount > 0) {
 			incrementSpeed(amount);
-		}
-		else return;
+		} else
+			return;
 	}
 
 	public void brake(double amount) {
-		if(amount < 0 || amount > 0){
+		if (amount < 0 || amount > 0) {
 			decrementSpeed(amount);
-		}
-		else return;
+		} else
+			return;
 	}
-	
 
+	/**
+	 * Flyttar bilen framåt i dess riktning med currentSpeed
+	 */
 	public void move() {
-		
+
+		switch (direction) {
+		case 0: // RIGHT
+			xPos += getCurrentSpeed();
+			break;
+		case 1: // DOWN
+			yPos -= getCurrentSpeed();
+			break;
+		case 2: // LEFT
+			xPos -= getCurrentSpeed();
+			break;
+		case 3: // UP
+			yPos += getCurrentSpeed();
+			break;
+		}
+
 	}
-	
+
 	public void turnLeft() {
-		
+		direction = (direction + 3) % 4;
 	}
-	
+
 	public void turnRight() {
-		
+		direction = (direction + 1) % 4;
 	}
-	
+
 }
