@@ -58,16 +58,20 @@ public abstract class Car implements Moveable {
 	public void decrementSpeed(double amount) {
 		currentSpeed = getCurrentSpeed() - speedFactor() * amount;
 	}
-
+	/**
+	 * Bilen kan gasa när värdet är mellan 0 och 1
+	 */
 	public void gas(double amount) {
-		if (amount <= 0 || amount > 0) {
+		if (amount > 0 && amount < 1) {
 			incrementSpeed(amount);
 		} else
 			return;
 	}
-
+	/**
+	 * Break fungerar så att bilen kan bromsa mellan värdena 0 och 1 
+	 */
 	public void brake(double amount) {
-		if (amount < 0 || amount > 0) {
+		if (amount > 0 && amount < 1) {
 			decrementSpeed(amount);
 		} else
 			return;
