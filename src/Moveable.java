@@ -7,4 +7,5 @@ public interface Moveable {
 	
 	public void turnRight();
 	
+	
 }
