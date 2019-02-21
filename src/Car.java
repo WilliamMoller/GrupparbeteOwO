@@ -53,10 +53,22 @@ public abstract class Car implements Moveable {
 
 	public void incrementSpeed(double amount) {
 		currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+		if (currentSpeed < 0) {
+            currentSpeed = 0;
+        }
+        else if (currentSpeed > enginePower) {
+            currentSpeed = enginePower;
+        }
 	}
 
 	public void decrementSpeed(double amount) {
 		currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+		if (currentSpeed < 0) {
+            currentSpeed = 0;
+        }
+        else if (currentSpeed > enginePower) {
+            currentSpeed = enginePower;
+        }
 	}
 	/**
 	 * Bilen kan gasa när värdet är mellan 0 och 1

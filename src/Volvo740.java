@@ -9,6 +9,8 @@ public class Volvo740 extends Car{
 		stopEngine();
 	}
 	
+	
+	
 	@Override
 	public double speedFactor() {
 		return getEnginePower() * 0.01 * trimFactor;
