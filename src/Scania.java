@@ -3,7 +3,9 @@ import javafx.scene.paint.Color;
 public class Scania extends Car{
 
 	private int vinkel;
-	
+	/**
+	 * Ger lastbilen hästkrafter, ett namn och färg
+	 */
 	public Scania() {
 		super(600, "Scania", Color.BLUE);
 		stopEngine();
@@ -14,6 +16,9 @@ public class Scania extends Car{
 		return getEnginePower() * 0.01;
 	}
 
+	/**
+	 * Sänker flaket. Kan bar göra detta om lastbilen står still
+	 */
 	public void sänkFlak() {
 		if (getCurrentSpeed() > 0){
 			return;
@@ -25,7 +30,9 @@ public class Scania extends Car{
 			}
 		}
 	}
-	
+	/**
+	 * Höjer flaket. Kan bara göra det om lastbilen står still
+	 */
 	public void höjFlak() {
 		if (getCurrentSpeed() > 0){
 			return;
