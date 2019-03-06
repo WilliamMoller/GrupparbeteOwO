@@ -7,5 +7,5 @@ public class LångtradarenLucas extends Car{
 		stopEngine();
 
 	
-}
 	}
+}
