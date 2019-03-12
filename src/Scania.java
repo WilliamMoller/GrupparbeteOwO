@@ -1,6 +1,6 @@
 import javafx.scene.paint.Color;
 
-public class Scania extends Car{
+public class Scania extends Vehicle{
 
 	private int vinkel;
 	/**
