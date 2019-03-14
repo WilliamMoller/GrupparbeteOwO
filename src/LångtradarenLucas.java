@@ -34,14 +34,14 @@ public class LångtradarenLucas extends Vehicle {
 	private ArrayList<Vehicle> Cars = new ArrayList<Vehicle>();
 
 	public void loadCar(Vehicle c) {
-		if (Cars.size() < 5 && isClose(c) && this.getCurrentSpeed() == 0 && c != this) {
+		if (Cars.size() < 5 && isClose(c) && this.getCurrentSpeed() == 0 && c != this && Ramp == false){
 			Cars.add(c);
 
 		}
 	}
 	
 	public void unloadCar() {
-		if (Cars.size() > 0 && this.getCurrentSpeed() == 0) {
+		if (Cars.size() > 0 && this.getCurrentSpeed() == 0 && Ramp == false ) {
 			Cars.remove(Cars.size()-1);
 		}
 	}
@@ -57,6 +57,8 @@ public class LångtradarenLucas extends Vehicle {
 			return false;
 		}
 	}
+	
+	
 	
 	public void updatePos(Vehicle c) {
 		c.setX(this.getX());
