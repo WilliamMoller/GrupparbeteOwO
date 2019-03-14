@@ -4,10 +4,14 @@ import javafx.scene.paint.Color;
 
 public class LångtradarenLucas extends Vehicle {
 
-	private boolean Ramp = true;
+	
+	Loader loader;
+	flatbed flak;
+	
 
 	public LångtradarenLucas() {
 		super(600, "LångtradarenLucas", Color.BROWN);
+		loader = new Loader(5);
 		stopEngine();
 	}
 
@@ -18,31 +22,31 @@ public class LångtradarenLucas extends Vehicle {
 
 	public void LowerRamp() {
 		if (getCurrentSpeed() > 0) {
-			Ramp = false;
-			return;
+			flak.LowerRamp();
+			
 
 		}
 	}
 
 	public void RaisRamp() {
 		if (getCurrentSpeed() > 0) {
-			Ramp = true;
-			return;
+			flak.RaiseRamp();
 		}
 	}
 
 	private ArrayList<Vehicle> Cars = new ArrayList<Vehicle>();
 
 	public void loadCar(Vehicle c) {
-		if (Cars.size() < 5 && isClose(c) && this.getCurrentSpeed() == 0 && c != this && Ramp == false){
-			Cars.add(c);
-
+		if ( this.getCurrentSpeed() == 0 && c != this && flak.isUp()) {
+			loader.loadCar(c);
 		}
-	}
 	
+
+	}
+
 	public void unloadCar() {
-		if (Cars.size() > 0 && this.getCurrentSpeed() == 0 && Ramp == false ) {
-			Cars.remove(Cars.size()-1);
+		if (Cars.size() > 0 && this.getCurrentSpeed() == 0 && Ramp == false) {
+			Cars.remove(Cars.size() - 1);
 		}
 	}
 
@@ -57,9 +61,7 @@ public class LångtradarenLucas extends Vehicle {
 			return false;
 		}
 	}
-	
-	
-	
+
 	public void updatePos(Vehicle c) {
 		c.setX(this.getX());
 		c.setY(this.getY());

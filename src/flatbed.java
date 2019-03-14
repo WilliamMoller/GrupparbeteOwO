@@ -1,21 +1,28 @@
 
 public class flatbed {
-	
-	private boolean Ramp = true;
-	
-	public void LowerRamp() {
-		if (getCurrentSpeed() > 0) {
-			Ramp = false;
-			return;
 
-		}
+	private Ramp ramp;
+	private int angle;
+
+	private enum Ramp {
+		DOWN, UP
+	};
+
+	public flatbed() {
+		angle = 0;
+		ramp = Ramp.DOWN;
 	}
 
-	public void RaisRamp() {
-		if (getCurrentSpeed() > 0) {
-			Ramp = true;
-			return;
-		}
+	public boolean isUp() {
+		return ramp == Ramp.UP;
+	}
 
- }
+	public void LowerRamp() {
+		ramp = Ramp.DOWN;
+	}
+
+	public void RaiseRamp() {
+		ramp = Ramp.UP;
+	}
+
 }
