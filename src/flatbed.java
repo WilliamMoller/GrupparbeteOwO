@@ -17,6 +17,10 @@ public class flatbed {
 		return ramp == Ramp.UP;
 	}
 
+	public boolean isDown() {
+		return ramp == Ramp.DOWN;
+	}
+
 	public void LowerRamp() {
 		ramp = Ramp.DOWN;
 	}
@@ -25,4 +29,5 @@ public class flatbed {
 		ramp = Ramp.UP;
 	}
 
+	
 }
