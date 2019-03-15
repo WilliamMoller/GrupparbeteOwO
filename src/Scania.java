@@ -19,7 +19,7 @@ public class Scania extends Vehicle{
 	/**
 	 * Sänker flaket. Kan bar göra detta om lastbilen står still
 	 */
-	public void sänkFlak() {
+	public void LowerRamp() {
 		if (getCurrentSpeed() > 0){
 			return;
 		}
@@ -33,7 +33,7 @@ public class Scania extends Vehicle{
 	/**
 	 * Höjer flaket. Kan bara göra det om lastbilen står still
 	 */
-	public void höjFlak() {
+	public void RaiseRamp() {
 		if (getCurrentSpeed() > 0){
 			return;
 		}
