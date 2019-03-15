@@ -19,7 +19,7 @@ public class Ferry extends Vehicle{
 	}
 
 	public void unloadCar() {
-		if (this.getCurrentSpeed() == 0 && flak.isUp()) {
+		if (this.getCurrentSpeed() == 0 && flak.isDown()) {
 		}
 	}
 
