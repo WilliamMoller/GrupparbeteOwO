@@ -73,7 +73,7 @@ public abstract class Vehicle implements Moveable {
 	 * Bilen kan gasa när värdet är mellan 0 och 1
 	 */
 	public void gas(double amount) {
-		if (amount > 0 && amount < 1) {
+		if (amount >= 0 && amount <= 1) {
 			incrementSpeed(amount);
 		} else
 			return;
@@ -83,7 +83,7 @@ public abstract class Vehicle implements Moveable {
 	 * Break fungerar så att bilen kan bromsa mellan värdena 0 och 1
 	 */
 	public void brake(double amount) {
-		if (amount > 0 && amount < 1) {
+		if (amount >= 0 && amount <= 1) {
 			decrementSpeed(amount);
 		} else
 			return;
