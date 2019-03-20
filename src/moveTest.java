@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 public class moveTest {
 
 	Volvo740 volvo = new Volvo740();
+	Saab95 saab = new Saab95();
 
 	@Test
 	public void volvoDriveTest() {
@@ -38,18 +39,76 @@ public class moveTest {
 	
 	@Test
 	public void saabTurboTest() {
-		Saab95 saab = new Saab95();
 		
 		assertEquals(0, saab.getCurrentSpeed(),0);
 		saab.gas(1);
 		assertEquals(1.25, saab.getCurrentSpeed(), 0);
 		saab.move();
-		assertEquals(1.15, saab.getCurrentSpeed(), 0);
+		assertEquals(1.25, saab.getX(), 0);
 		saab.setTurboOn();
-		
+		saab.gas(1);
+		assertEquals(1.25+1.25*1.3,saab.getCurrentSpeed(), 0);
+		saab.setTurboOff();
+		saab.gas(1);
+		assertEquals(1.25+1.25+1.25*1.3,saab.getCurrentSpeed(),0);
+		saab.brake(1);
+		saab.setTurboOn();
+		saab.brake(1);
+		assertEquals(1.25,saab.getCurrentSpeed(),0);
+		saab.brake(1);
+		assertEquals(0,saab.getCurrentSpeed(),0);
 		
 		
 	}
+		@Test
+		public void scaniaRampTest() {
+			Scania scania = new Scania();
+			
+			
+			assertEquals(0, scania.getCurrentSpeed(),0);
+			scania.gas(1);
+			assertEquals(6, scania.getCurrentSpeed(), 0);
+			scania.move();
+			assertEquals(6, scania.getX(), 0);
+			//scania.LowerRamp();
+			
+		}
+		
+		@Test
+		public void långtradarenLucas() {
+			LångtradarenLucas lucas = new LångtradarenLucas();
+			assertEquals(0, lucas.getCurrentSpeed(), 0);
+			lucas.gas(1);
+			assertEquals(6, lucas.getCurrentSpeed(), 0);
+			lucas.loadCar(saab);
+			assertEquals(0,lucas.getLoadedSize(),0);
+			lucas.brake(1);
+			lucas.LowerRamp();
+			lucas.loadCar(saab);
+			assertEquals(1,lucas.getLoadedSize(),0);
+			lucas.RaisRamp();
+			lucas.gas(1);
+			lucas.gas(1);
+			lucas.gas(1);
+			lucas.gas(1);
+			lucas.gas(1);
+			lucas.move();
+			lucas.move();
+			lucas.move();
+			assertEquals(saab.getX(),lucas.getX(),0);
+			assertEquals(saab.getY(),lucas.getY(),0);
+		}
+		@Test
+		public void ferry() {
+			Ferry ferry = new Ferry();
+			assertEquals(0, ferry.getCurrentSpeed(), 0);
+			ferry.gas(1);
+			assertEquals(20, ferry.getCurrentSpeed(), 0);
+		}
+		
+		
+		
+	
 
 	@BeforeEach
 	public void resetVolvo() {

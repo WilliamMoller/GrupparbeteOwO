@@ -10,6 +10,10 @@ public class Ferry extends Vehicle{
 		loader = new Loader(75);
 		stopEngine();
 	}
+	@Override
+	public double speedFactor() {
+		return getEnginePower() * 0.01;
+		}
 	
 	public void loadCar(Vehicle c) {
 		if (this.getCurrentSpeed() == 0 && c != this && flak.isDown()) {
