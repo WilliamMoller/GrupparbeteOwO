@@ -1,3 +1,4 @@
+package model;
 import java.util.ArrayList;
 
 public class Loader {
@@ -41,9 +42,16 @@ public class Loader {
 		}
 	}
 
-	public void updatePos(Vehicle owner , Vehicle c) {
-		c.setX(owner.getX());
-		c.setY(owner.getY());
+	public void updatePos(Vehicle owner) {
+		for (Vehicle v : Cars) {
+			v.setX(owner.getX());
+			v.setY(owner.getY());
+			
+		}
+	}
+
+	public int getSize() {
+		return Cars.size();
 	}
 	
 }
