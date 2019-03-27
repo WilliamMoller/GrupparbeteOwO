@@ -8,7 +8,7 @@ public class LångtradarenLucas extends Vehicle {
 
 	public LångtradarenLucas() {
 		super(600, "LångtradarenLucas", Color.BROWN);
-		loader = new Loader(5);
+		loader = new Loader(1);
 		flak = new flatbed();
 		stopEngine();
 	}
@@ -43,8 +43,9 @@ public class LångtradarenLucas extends Vehicle {
 
 	}
 
-	public void unloadCar() {
+	public void unLoadCar() {
 		if (this.getCurrentSpeed() == 0 && flak.isDown()) {
+			loader.unLoadLastCar();
 		}
 	}
 

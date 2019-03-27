@@ -68,10 +68,13 @@ public class moveTest {
 			
 			assertEquals(0, scania.getCurrentSpeed(),0);
 			scania.gas(1);
-			assertEquals(6, scania.getCurrentSpeed(), 0);
+			scania.gas(1);
+			assertEquals(12, scania.getCurrentSpeed(), 0);
 			scania.move();
-			assertEquals(6, scania.getX(), 0);
-			//scania.LowerRamp();
+			assertEquals(12, scania.getX(), 0);
+			scania.LowerRamp();
+			
+			
 			
 		}
 		
@@ -98,6 +101,20 @@ public class moveTest {
 			lucas.move();
 			assertEquals(saab.getX(),lucas.getX(),0);
 			assertEquals(saab.getY(),lucas.getY(),0);
+			lucas.brake(1);
+			lucas.brake(1);
+			lucas.brake(1);
+			lucas.brake(1);
+			lucas.brake(1);
+			lucas.brake(1);
+			assertEquals(0, lucas.getCurrentSpeed(), 0);
+			lucas.unLoadCar();
+			assertEquals(0, lucas.getLoadedSize(), 0);
+			lucas.gas(1);
+			lucas.move();
+			assertEquals(96, lucas.getX(), 0);
+			assertEquals(saab.getY(), lucas.getY(), 0);
+			
 		}
 		@Test
 		public void ferry() {
@@ -105,6 +122,12 @@ public class moveTest {
 			assertEquals(0, ferry.getCurrentSpeed(), 0);
 			ferry.gas(1);
 			assertEquals(20, ferry.getCurrentSpeed(), 0);
+			ferry.brake(1);
+			ferry.loadCar(saab);
+			ferry.loadCar(volvo);
+			ferry.loadCar(saab);
+			assertEquals(3, ferry.getLoadedSize(), 0);
+			
 		}
 		
 		

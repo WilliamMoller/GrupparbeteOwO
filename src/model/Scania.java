@@ -4,7 +4,8 @@ import javafx.scene.paint.Color;
 public class Scania extends Vehicle {
 
 	private flatbed ramp;
-
+	int vinkel;
+	
 	/**
 	 * Ger lastbilen hästkrafter, ett namn och färg
 	 */

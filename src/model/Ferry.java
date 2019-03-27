@@ -17,15 +17,17 @@ public class Ferry extends Vehicle{
 		}
 	
 	public void loadCar(Vehicle c) {
-		if (this.getCurrentSpeed() == 0 && c != this && flak.isDown()) {
 			loader.loadCar(c);
 		}
 
-	}
 
 	public void unloadCar() {
 		if (this.getCurrentSpeed() == 0 && flak.isDown()) {
 		}
+	}
+	
+	public int getLoadedSize() {
+		return loader.getSize();
 	}
 
 
