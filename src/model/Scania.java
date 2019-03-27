@@ -7,7 +7,7 @@ public class Scania extends Vehicle {
 	int vinkel;
 	
 	/**
-	 * Ger lastbilen hästkrafter, ett namn och färg
+	 * Självaste lastbilen och som i sin tur får hästkrafter, ett namn och färg
 	 */
 	public Scania() {
 		super(600, "Scania", Color.BLUE);
