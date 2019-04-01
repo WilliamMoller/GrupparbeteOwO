@@ -15,6 +15,7 @@ public class CarController {
 			public void handle(long now) {
 				if (model != null) {
 					model.move();
+					checkBounds();
 					cp.move(model.getX(), model.getY());
 					cp.update();
 				}
@@ -35,4 +36,13 @@ public class CarController {
 		model.brake(amount);
 	}
 
+	public void checkBounds() {
+		if (model.getX() > 1100 || model.getX() < 0) {
+			model.turnLeft();
+			model.turnLeft();
+			model.move();
+			
+		}
+	}
+	
 }
