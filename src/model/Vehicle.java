@@ -1,4 +1,5 @@
 package model;
+
 import javafx.scene.paint.Color;
 
 public abstract class Vehicle implements Moveable {
@@ -127,13 +128,17 @@ public abstract class Vehicle implements Moveable {
 	public double getY() {
 		return this.yPos;
 	}
-	
+
 	public void setX(double posX) {
 		xPos = posX;
 	}
-	
+
 	public void setY(double posY) {
 		yPos = posY;
+	}
+
+	public String getModelName() {
+		return this.modelName;
 	}
 
 }

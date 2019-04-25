@@ -13,7 +13,13 @@ public class ButtonBox extends HBox {
 	private Spinner<Integer> spinner;
 	private Button gasButton;
 	private Button brakeButton;
+	private Button turboOnButton;
+	private Button turboOffButton;
+	private Button rampUpButton;
+	private Button rampDownButton;
 
+	
+	
 	public ButtonBox(CarController cc) {
 		this.controller = cc;
 		setStyle();
@@ -27,6 +33,20 @@ public class ButtonBox extends HBox {
 		});
 		brakeButton.setOnAction(e -> {
 			controller.brake(spinner.getValue() / 100.0);
+		});
+		turboOnButton.setOnAction(e -> {
+			controller.turboOn();
+		});
+		turboOffButton.setOnAction(e -> {
+			controller.turboOff();
+		});
+		
+		rampUpButton.setOnAction(e -> {
+			controller.turboOff();
+		});
+		
+		rampDownButton.setOnAction(e -> {
+			controller.turboOff();
 		});
 	}
 
@@ -43,9 +63,21 @@ public class ButtonBox extends HBox {
 
 		brakeButton = new Button("Brake");
 		brakeButton.setPrefSize(100, 20);
+		
+		turboOnButton = new Button("TurboOn");
+		turboOnButton.setPrefSize(100, 20);
+		
+		turboOffButton = new Button("TurboOff");
+		turboOffButton.setPrefSize(100, 20);
+		
+		rampUpButton = new Button("RampUp");
+		rampUpButton.setPrefSize(100, 20);
+		
+		rampDownButton = new Button("RampDown");
+		rampDownButton.setPrefSize(100, 20);
 
 		spinnerBox.getChildren().addAll(spinner);
-		buttonsBox.getChildren().addAll(gasButton, brakeButton);
+		buttonsBox.getChildren().addAll(gasButton, brakeButton, rampUpButton, rampDownButton, turboOnButton, turboOffButton);
 		container.getChildren().addAll(spinnerBox, buttonsBox);
 
 		this.getChildren().addAll(container);
@@ -55,7 +87,7 @@ public class ButtonBox extends HBox {
 	private void setStyle() {
 		this.setPadding(new Insets(15, 12, 15, 12));
 		this.setSpacing(10);
-		this.setStyle("-fx-background-color: #336699;");
+		this.setStyle("-fx-background-color: #ea0771;");
 	}
 
 }

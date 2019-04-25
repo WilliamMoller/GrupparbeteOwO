@@ -22,13 +22,28 @@ public class flatbed {
 		return ramp == Ramp.DOWN;
 	}
 
-	public void LowerRamp() {
+	public void closeRamp() {
 		ramp = Ramp.DOWN;
 	}
 
-	public void RaiseRamp() {
+	public void openRamp() {
 		ramp = Ramp.UP;
 	}
 
-	
+	public void raiseRamp() {
+		angle += 10;
+		if (angle >= 70)
+			angle = 70;
+	}
+
+	public void lowerRamp() {
+		angle -= 10;
+		if (angle < 0)
+			angle = 0;
+	}
+
+	public int getAngle() {
+		return angle;
+	}
+
 }

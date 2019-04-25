@@ -25,14 +25,14 @@ public class LångtradarenLucas extends Vehicle {
 
 	public void LowerRamp() {
 		if (getCurrentSpeed() > 0) {
-			flak.LowerRamp();
+			flak.closeRamp();
 
 		}
 	}
 
 	public void RaisRamp() {
 		if (getCurrentSpeed() > 0) {
-			flak.RaiseRamp();
+			flak.openRamp();
 		}
 	}
 

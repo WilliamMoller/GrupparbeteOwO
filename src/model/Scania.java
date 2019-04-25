@@ -4,7 +4,6 @@ import javafx.scene.paint.Color;
 public class Scania extends Vehicle {
 
 	private flatbed ramp;
-	int vinkel;
 	
 	/**
 	 * Självaste lastbilen och som i sin tur får hästkrafter, ett namn och färg
@@ -27,10 +26,7 @@ public class Scania extends Vehicle {
 		if (getCurrentSpeed() > 0) {
 			return;
 		} else {
-			vinkel--;
-			if (vinkel < 0) {
-				vinkel = 0;
-			}
+			ramp.lowerRamp();
 		}
 	}
 
@@ -41,13 +37,7 @@ public class Scania extends Vehicle {
 		if (getCurrentSpeed() > 0) {
 			return;
 		} else {
-
-			for (int i = 0; i < 70; i++) {
-				vinkel++;
-				if (vinkel > 70) {
-					vinkel = 70;
-				}
-			}
+			ramp.raiseRamp();
 		}
 	}
 }
