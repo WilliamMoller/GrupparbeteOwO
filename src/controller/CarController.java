@@ -39,7 +39,7 @@ public class CarController {
 			}
 		}
 	}
-	
+
 	public void RampUp() {
 		for (Vehicle vehicle : model) {
 			if (vehicle.getModelName().equals("Scania")) {
@@ -47,11 +47,12 @@ public class CarController {
 			}
 		}
 	}
-	
+
 	public void RampDown() {
 		for (Vehicle vehicle : model) {
 			if (vehicle.getModelName().equals("Scania")) {
-				((Scania) vehicle).RaiseRamp();;
+				((Scania) vehicle).RaiseRamp();
+				;
 			}
 		}
 	}
@@ -63,7 +64,7 @@ public class CarController {
 			}
 		}
 	}
-	
+
 	public void gas(double amount) {
 		for (Vehicle vehicle : model) {
 			vehicle.gas(amount);

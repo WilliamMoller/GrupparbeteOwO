@@ -21,8 +21,8 @@ public class CarPane extends Pane {
 
 	public CarPane() {
 		volvoImage = new ImageView(new Image("/pics/Volvo740.jpg"));
-		saabImage = new ImageView(new Image("/pics/Scania.jpg"));
-		scaniaImage = new ImageView(new Image("/pics/Saab95.jpg"));
+		saabImage = new ImageView(new Image("/pics/Saab95.jpg"));
+		scaniaImage = new ImageView(new Image("/pics/Scania.jpg"));
 
 		this.getChildren().addAll(saabImage, volvoImage, scaniaImage);
 		//this.getChildren().add(volvoImage);
